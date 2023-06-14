@@ -98,5 +98,4 @@ const App = () => {
   );
 };
 
-export default Form;
 export default App;
