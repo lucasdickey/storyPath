@@ -32,6 +32,9 @@ const App = () => {
     const payload = {
       prompt,
       max_tokens: 1024,
+      temperature: 0.3,
+      n: 1,
+      model: 'text-davinci-003'
     };
 
     const headers = {
