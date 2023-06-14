@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
+const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+  };
+  
 const App = () => {
   const [formData, setFormData] = useState({
     childName: '',
