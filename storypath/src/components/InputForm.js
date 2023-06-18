@@ -1,11 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-  };
+import StoryDisplay from './components/StoryDisplay';
   
 const App = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +16,8 @@ const App = () => {
     storyTheme: ''
   });
 
+  const [story, setStory] = useState('');
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -27,7 +25,7 @@ const App = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  function generateStory(e) {
     e.preventDefault();
 
     const openAiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
@@ -43,23 +41,24 @@ const App = () => {
 
     const headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer YOUR_OPENAI_API_KEY',
+      'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
     };
 
     axios.post(openAiUrl, payload, { headers })
       .then(response => {
-        onStoryGenerated(response.data.choices[0].text);
+        setStory(response.data.choices[0].text);
       })
       .catch(error => {
         console.error("Error fetching data: ", error);
         alert("Error fetching story. Please try again.");
       });
-  };
+  }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form onSubmit={generateStory}>
+        
+      <input
           type="text"
           name="childName"
           placeholder="Child's Name"
@@ -142,9 +141,11 @@ const App = () => {
           <option value="adventure">Perseverance</option>
           <option value="adventure">Kindness</option>
         </select>
+
         <button type="submit">Create your child's adventure</button>
       </form>
-      {/* Story output will be displayed here */}
+      
+      <StoryDisplay story={story} />
     </div>
   );
 };

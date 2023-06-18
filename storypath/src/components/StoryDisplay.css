@@ -1,0 +1,16 @@
+/* src/components/StoryDisplay.css */
+.story {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .story h2 {
+    margin-top: 0;
+  }
+  
+  .story p {
+    white-space: pre-wrap;
+  }
+  

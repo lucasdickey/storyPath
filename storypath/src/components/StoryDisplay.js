@@ -5,12 +5,12 @@ const StoryDisplay = ({ story }) => {
   return (
     <div>
       {story ? (
-        <div>
-          <h2>Generated Story</h2>
+        <div className="story">
+          <h2>Your Custom Story:</h2>
           <p>{story}</p>
         </div>
       ) : (
-        <p>Please fill out the form to generate a story.</p>
+        <p>Enter the details and click the button to generate your story!</p>
       )}
     </div>
   );
