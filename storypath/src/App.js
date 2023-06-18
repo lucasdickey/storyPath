@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import Form from './components/Form';
+import Form from './components/InputForm';
 import StoryDisplay from './components/StoryDisplay';
 
 const App = () => {

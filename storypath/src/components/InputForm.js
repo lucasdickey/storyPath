@@ -13,7 +13,11 @@ const App = () => {
     villain: '',
     location: '',
     childAge: '',
-    authorVoice: ''
+    authorVoice: '',
+    childPronouns: '',
+    sidekickPronouns: '',
+    childSidekick: '',
+    storyTheme: ''
   });
 
   const handleChange = (e) => {
@@ -27,7 +31,7 @@ const App = () => {
     e.preventDefault();
 
     const openAiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
-    const prompt = `Create a children's story with a hero named ${formData.childName}, a villain who is ${formData.villain}, set in ${formData.location}, suitable for a ${formData.childAge} year old, in the voice of ${formData.authorVoice}.`;
+    const prompt = `Create a children's story with the following elements: 1) a hero named ${formData.childName}, 2) a villain who is a ${formData.villain}, 3) a sidekick named ${formData.childSidekick}, 4) set in a ${formData.location} location/setting, 4) suitable for a child of ${formData.childAge} years old, 5) in the voice of ${formData.authorVoice}, and 6) with the theme of ${formData.storyTheme}.`;
 
     const payload = {
       prompt,
@@ -62,6 +66,33 @@ const App = () => {
           value={formData.childName}
           onChange={handleChange}
         />
+        <select
+          name="childPronouns"
+          value={formData.childPronouns}
+          onChange={handleChange}
+        >
+          <option value="">Select Child's Pronouns</option>
+          <option value="he/him">He/Him</option>
+          <option value="she/her">She/Her</option>
+          <option value="they/them">They/Them</option>
+        </select>
+        <input
+          type="text"
+          name="childSidekick"
+          placeholder="Sidekick's Name"
+          value={formData.childName}
+          onChange={handleChange}
+        />
+        <select
+          name="sidekickPronouns"
+          value={formData.childPronouns}
+          onChange={handleChange}
+        >
+          <option value="">Select Sidekick's Pronouns</option>
+          <option value="he/him">He/Him</option>
+          <option value="she/her">She/Her</option>
+          <option value="they/them">They/Them</option>
+        </select>
         <input
           type="text"
           name="villain"
@@ -97,6 +128,19 @@ const App = () => {
           <option value="beverly_clear">Beverly Cleary</option>
           <option value="mark_twain">Mark Twain</option>
           {/* Add other authors here */}
+        </select>
+        <select
+          name="storyTheme"
+          value={formData.storyTheme}
+          onChange={handleChange}
+        >
+          <option value="">Select Story Theme</option>
+          <option value="friendship">Friendship</option>
+          <option value="family">Empathy</option>
+          <option value="adventure">Bravery</option>
+          <option value="adventure">Acceptance</option>
+          <option value="adventure">Perseverance</option>
+          <option value="adventure">Kindness</option>
         </select>
         <button type="submit">Create your child's adventure</button>
       </form>
