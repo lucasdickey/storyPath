@@ -1,5 +1,6 @@
 // src/components/StoryDisplay.js
 import React from 'react';
+import './StoryDisplay.css';
 
 const StoryDisplay = ({ story }) => {
   return (
