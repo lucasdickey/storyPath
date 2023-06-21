@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Form from './components/InputForm';
-import StoryDisplay from './components/StoryDisplay.js';
+import StoryDisplay from './components/StoryDisplay';
 
 const App = () => {
   const [story, setStory] = useState('');
