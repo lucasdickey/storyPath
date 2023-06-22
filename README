@@ -1,0 +1,9 @@
+Series of ChatGPT queries I used as inputs to writing the app thus far. Not sure if these URLs are public or not... let me know, @serg.
+
+"What are key elements of a good children's story?"
+https://chat.openai.com/c/ea503a53-03d0-45b0-9fe6-aa149bc359d0
+
+"Given all of the above. Let's get started. We need to create an app that has a front-end series of input fields that take strings, numbers and enums as an input to an API call to the /completion endpoint. 
+\n
+This app will create children stories in a "madlib" fashion using the inputs referenced above. Inputs will include child's name (as they'll be the hero of the story), a type of villain, a location for the story, the child's age (to determine "age appropriateness"), and a voice of author enum that picks from authors like Roald Dahl, JK Rowling, EB White and others. The front end should be a simple form. On collecting this info, it should be sent via a POST call to the OpenAI /completion endpoint, and upon receiving a successful response, the story output will be displayed in-line below the form entry fields."
+https://chat.openai.com/c/cc2e3174-c2e1-4e99-a6d6-795d58d34c98
