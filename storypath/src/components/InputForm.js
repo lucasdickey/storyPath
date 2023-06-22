@@ -35,8 +35,9 @@ const App = () => {
       prompt,
       max_tokens: 1024,
       temperature: 0.3,
-      n: 1,
-      model: 'text-davinci-003'
+      n: 1, // do we want to use the best_of parameter in tandem with n such that we could fetch the best of as data.[0], but also return data.[0+n] and have available for "generate new story from same inputs"  and it pulls from local cache rather than making another requrest to OpenAI?
+      model: 'text-davinci-003',
+      user: 'user-1234' // we'll want to dynamically insert in a user id here, with the assumption being this might help with less repetition in story composition
     };
 
     const headers = {
